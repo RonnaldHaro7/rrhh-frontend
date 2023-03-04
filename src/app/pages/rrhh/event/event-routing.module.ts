@@ -3,24 +3,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {EventComponent} from './event.component';
 import {EventFormComponent} from './event-form/event-form.component';
 import {ExitGuard} from '@shared/guards';
-import { CalendarComponent } from './calendar/calendar.component';
-import { TimelineComponent } from './timeline/timeline.component';
 
 const routes: Routes = [
-  {
-    path: 'timeline/:planningId',
-    component: TimelineComponent,
-  },
-  {
-    path: 'calendar',
-    component: CalendarComponent,
-    canDeactivate: [ExitGuard]
-  },
-  // {
-  //   path: 'timeline',
-  //   component: TimelineComponent,
-  //   canDeactivate: [ExitGuard]
-  // },
   {
     path: '',
     component: EventComponent
@@ -29,10 +13,6 @@ const routes: Routes = [
     path: ':id',
     component: EventFormComponent,
     canDeactivate: [ExitGuard]
-  },
-  {
-    path: 'plannings/:planningId',
-    component: EventComponent
   },
 ];
 

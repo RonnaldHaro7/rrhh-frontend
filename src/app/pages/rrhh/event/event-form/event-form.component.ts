@@ -8,14 +8,11 @@ import {
   Validators
 } from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {CatalogueModel, PlanningModel, ReadPlanningDto} from '@models/uic';
-import {CataloguesHttpService, PlanningsHttpService} from '@services/uic';
-import {BreadcrumbService, CoreService, MessageService} from '@services/core';
+import {BreadcrumbService, CoreService, MessageService} from '@services/resources';
 import {OnExitInterface} from '@shared/interfaces';
-import { EventsHttpService } from '@services/uic';
-import { CreateEventDto, UpdateEventDto } from '@models/uic';
+import { EventsHttpService } from '@services/rrhh';
+import { CreateEventDto, UpdateEventDto } from '@models/rrhh';
 import { CatalogueTypeEnum } from '@shared/enums';
-import { PlanningTypeEnum } from '@shared/enums/planning.enum';
 import { format } from 'date-fns';
 import { DateValidators } from '@shared/validators';
 
@@ -26,11 +23,7 @@ import { DateValidators } from '@shared/validators';
   encapsulation: ViewEncapsulation.None
 })
 export class EventFormComponent implements OnInit, OnExitInterface {
-  planning:ReadPlanningDto = {}
   id: string = '';
-  bloodTypes: CatalogueModel[] = [];
-  catalogue: CatalogueModel[] = [];
-  plannings: PlanningModel[] = [];
   form: UntypedFormGroup = this.newForm;
   panelHeader: string = 'Crear fase';
   isChangePassword: UntypedFormControl = new UntypedFormControl(false);
@@ -41,8 +34,6 @@ export class EventFormComponent implements OnInit, OnExitInterface {
   constructor(
     private activatedRoute: ActivatedRoute,
     private breadcrumbService: BreadcrumbService,
-    private cataloguesHttpService: CataloguesHttpService,
-    private planningsHttpService: PlanningsHttpService,
     private coreService: CoreService,
     private formBuilder: UntypedFormBuilder,
     public messageService: MessageService,
@@ -51,17 +42,12 @@ export class EventFormComponent implements OnInit, OnExitInterface {
   ) {
     this.breadcrumbService.setItems([
       {label: 'Convocatorias', routerLink: ['/uic/plannings']},
-      {label: `${this.planningsHttpService.plannings.name}`, routerLink: ['/uic/events/plannings',this.planningsHttpService.plannings.id]},
       {label: 'Nueva fase'},
     ]);
-      console.log(activatedRoute.snapshot.params['id'] )
     if (activatedRoute.snapshot.params['id'] !== 'new') {
       this.id = activatedRoute.snapshot.params['id'];
-      this.panelHeader = 'Actualizar fase';
+      this.panelHeader = 'Guardar Modalidad';
     }
-    this.planning = planningsHttpService.plannings
-    console.log(planningsHttpService.plannings)
-    
   }
 
   async onExit(): Promise<boolean> {
@@ -72,27 +58,19 @@ export class EventFormComponent implements OnInit, OnExitInterface {
   }
 
   ngOnInit(): void {
-    this.getCatalogueName();
-    this.getPlanningName();
-    if(this.id){
     this.getEvent();
-  }
   }
 
 
   get newForm(): UntypedFormGroup {
     return this.formBuilder.group({
-      catalogue: [null, [Validators.required]],
-      planning: [null, [Validators.required]],
       endDate: [null, [Validators.required,DateValidators.min(new Date())]],
       startDate: [null, [DateValidators.min(new Date())]],
       isEnable: [false, [Validators.required]],
       sort: [null, [Validators.required]],
     });
-   
-    
   }
-  
+
   onSubmit(): void {
     if (this.form.valid) {
       if (this.id != '') {
@@ -106,14 +84,14 @@ export class EventFormComponent implements OnInit, OnExitInterface {
     }
   }
 
-  back(planningId: string): void {
-    this.router.navigate(['/uic/events/plannings',planningId]);
+  back(): void {
+    this.router.navigate(['/uic/events']);
   }
-  
+
   create(event: CreateEventDto): void {
     this.eventsHttpService.create(event).subscribe(event => {
       this.form.reset(event);
-      this.back(this.planning.id);
+      this.back();
     });
   }
 
@@ -123,47 +101,17 @@ export class EventFormComponent implements OnInit, OnExitInterface {
     this.eventsHttpService.findOne(this.id).subscribe((event) => {
       this.isLoadingSkeleton = false;
       this.form.patchValue(event);
-      let startedAt = format(new Date(event.startDate), 'dd/MM/yyyy');
-      console.log (startedAt);
-      this.startDateField.setValue(startedAt);
-      let endedAt = format(new Date(event.endDate), 'dd/MM/yyyy');
-      console.log (endedAt);
-      this.endDateField.setValue(endedAt);
-    });
-  }
-
-  getCatalogueName(): void {
-    this.isLoadingSkeleton = true;
-    this.cataloguesHttpService.catalogue(CatalogueTypeEnum.EVENT_NAMES).subscribe((catalogue) => {
-      this.isLoadingSkeleton = false;
-      this.catalogue = catalogue;
-    });
-  }
-
-  getPlanningName(): void {
-    this.isLoadingSkeleton = true;
-    this.planningsHttpService.planning(PlanningTypeEnum.EVENT_NAMES).subscribe((plannings) => {
-      this.isLoadingSkeleton = false;
-      this.plannings = plannings;
     });
   }
 
   update(event:UpdateEventDto): void {
     this.eventsHttpService.update(this.id, event).subscribe((event) => {
       this.form.reset(event);
-      this.back(this.planning.id)
+      this.back()
     });
   }
 
   // Getters
-
-  get catalogueField() {
-    return this.form.controls['catalogue'];
-  }
-
-  get planningField() {
-    return this.form.controls['planning'];
-  }
 
   get startDateField() {
     return this.form.controls['startDate'];

@@ -17,5 +17,5 @@ import { FileUploadModule } from 'primeng/fileupload';
     FileUploadModule
   ]
 })
-export class UicModule {
+export class RrhhModule {
 }

@@ -1,6 +1,6 @@
 import {Directive, ElementRef, Input, Renderer2} from '@angular/core';
 import {AbstractControl, ValidationErrors} from '@angular/forms';
-import {MessageService} from '@services/core';
+import {MessageService} from '@services/resources';
 
 @Directive({
   selector: '[appErrorMessage]'

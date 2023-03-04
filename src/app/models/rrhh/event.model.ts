@@ -1,10 +1,6 @@
-import { CatalogueModel ,PlanningModel } from "@models/uic";
-
 export interface EventModel {
+  
   id: string;
-  // name:CatalogueModel;
-  catalogue: CatalogueModel;
-  plannings: PlanningModel[];
   endDate: Date;
   isEnable: boolean;
   sort: number;

@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MenuItem} from "primeng/api";
 import {UntypedFormControl} from "@angular/forms";
-import {CoreService, MessageService} from "@services/core";
-import {ColumnModel, PaginatorModel} from "@models/core";
+import {CoreService, MessageService} from "@services/resources";
+import {ColumnModel, PaginatorModel} from "@models/resources";
 import {debounceTime} from "rxjs";
 
 @Component({

@@ -22,7 +22,7 @@ import {ToastModule} from "primeng/toast";
 import {PaginatorModule} from "primeng/paginator";
 import {KeyFilterModule} from "primeng/keyfilter";
 import {DialogModule} from "primeng/dialog";
-import {UicModule} from "../rrhh.module";
+import {RrhhModule} from "../rrhh.module";
 import {InputSwitchModule} from "primeng/inputswitch";
 import {PanelModule} from "primeng/panel";
 import {MenuModule} from 'primeng/menu';
@@ -34,8 +34,6 @@ import {SplitButtonModule} from "primeng/splitbutton";
 import {BadgeModule} from 'primeng/badge';
 //import {AuthenticationModule} from "../authentication/authentication.module";
 import { FullCalendarModule} from 'primeng/fullcalendar';
-import { CalendarComponent } from './calendar/calendar.component';
-import { TimelineComponent } from './timeline/timeline.component';
 import { TimelineModule } from 'primeng/timeline';
 
 @NgModule({
@@ -43,8 +41,6 @@ import { TimelineModule } from 'primeng/timeline';
     EventComponent,
     EventFormComponent,
     EventListComponent,
-    CalendarComponent,
-    TimelineComponent
   ],
   imports: [
     NgCommonModule,

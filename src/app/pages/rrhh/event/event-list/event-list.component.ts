@@ -2,11 +2,11 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {UntypedFormControl} from "@angular/forms";
 import {ActivatedRoute,Router} from '@angular/router';
 import {debounceTime} from "rxjs";
-import {ColumnModel, PaginatorModel} from '@models/core';
-import {EventsHttpService, PlanningsHttpService} from '@services/uic';
-import {BreadcrumbService, CoreService, MessageService} from '@services/core';
+import {ColumnModel, PaginatorModel} from '@models/resources';
+import {EventsHttpService} from '@services/rrhh';
+import {BreadcrumbService, CoreService, MessageService} from '@services/resources';
 import {MenuItem} from "primeng/api";
-import { EventModel, ReadPlanningDto, SelectEventDto } from '@models/uic';
+import { EventModel, SelectEventDto } from '@models/rrhh';
 import { AuthService } from '@services/auth';
 
 @Component({
@@ -15,7 +15,6 @@ import { AuthService } from '@services/auth';
   styleUrls: ['./event-list.component.scss'],
 })
 export class EventListComponent implements OnInit {
-  planning:ReadPlanningDto = {}
   columns: ColumnModel[];
   loaded$ = this.coreService.loaded$;
   pagination$ = this.eventsHttpService.pagination$;
@@ -34,7 +33,6 @@ export class EventListComponent implements OnInit {
     private router: Router,
     private eventsHttpService: EventsHttpService,
     private route: ActivatedRoute,
-    private planningsHttpService: PlanningsHttpService,
   ) {
     this.breadcrumbService.setItems([
       {label: 'Convocatorias', routerLink: ['/uic/plannings']},
@@ -44,12 +42,10 @@ export class EventListComponent implements OnInit {
     this.actionButtons = this.getActionButtons();
     this.pagination$.subscribe((pagination) => this.paginator = pagination);
     this.search.valueChanges.pipe(debounceTime(500)).subscribe((_) => this.findAll());
-    this.planning = planningsHttpService.plannings
   }
 
   ngOnInit(): void {
-    const planningId = this.route.snapshot.paramMap.get('planningId');
-    this.findByPlanning(0, planningId);
+    this.findAll();
   }
 
   checkState(event: EventModel): string {
@@ -60,10 +56,6 @@ export class EventListComponent implements OnInit {
 
   findAll(page: number = 0) {
     this.eventsHttpService.findAll(page, this.search.value).subscribe((events) => this.events = events);
-  }
-
-  findByPlanning(page: number = 0,planningId:string = '') {
-    this.eventsHttpService.findByPlanning(page, this.search.value,planningId).subscribe((events) => this.events = events);
   }
 
   getColumns(): ColumnModel[] {

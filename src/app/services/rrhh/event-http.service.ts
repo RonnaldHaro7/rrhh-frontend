@@ -3,10 +3,10 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {environment} from '@env/environment';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {PaginatorModel} from "@models/core";
 import {ServerResponse} from '@models/http-response';
-import {CoreService, MessageService} from '@services/core';
-import { CreateEventDto, EventModel, ReadEventDto, ReadPlanningDto, UpdateEventDto } from '@models/uic';
+import { CreateEventDto, EventModel, ReadEventDto,  UpdateEventDto } from '@models/rrhh';
+import { CoreService, MessageService } from '@services/resources';
+import { PaginatorModel } from '@models/resources';
 
 @Injectable({
   providedIn: 'root'
