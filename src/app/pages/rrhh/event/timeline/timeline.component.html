@@ -1,0 +1,23 @@
+<p-panel>
+  <ng-template pTemplate="header">
+    <h2 class="panel-header">{{panelHeader}}</h2>
+  </ng-template>
+
+  <p-divider></p-divider>
+
+
+<p-timeline [value]="events">
+  <ng-template pTemplate="content" let-event>
+      {{event.status}}
+  </ng-template>
+</p-timeline>
+
+<p-divider></p-divider>
+
+<button pButton pRipple id="btnBack" type="button"
+label="REGRESAR"
+class="p-button-info p-button-outlined"
+icon="pi pi-arrow-left"
+[loading]="(loaded$|async)!"
+(click)="back()"
+></button>
