@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AuthHttpService, AuthService} from '@services/auth';
-import {CoreService, MessageService, RoutesService} from '@services/core';
+import {CoreService, MessageService} from '@services/resources';
+import { RoutesService } from '@services/resources/routes.service';
 import {RolesEnum} from "@shared/enums";
 
 @Component({

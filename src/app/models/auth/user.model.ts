@@ -1,5 +1,5 @@
 import {RoleModel} from '@models/auth';
-import {CatalogueModel} from '@models/core';
+import {CatalogueModel} from '@models/resources';
 
 export interface UserModel {
   id: string;

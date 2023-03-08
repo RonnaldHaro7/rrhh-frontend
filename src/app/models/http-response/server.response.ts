@@ -1,4 +1,4 @@
-import {PaginatorModel} from '@models/core';
+import {PaginatorModel} from '@models/resources';
 
 export interface ServerResponse {
   data: any;

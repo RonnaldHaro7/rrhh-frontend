@@ -35,7 +35,7 @@ export class EventListComponent implements OnInit {
     private route: ActivatedRoute,
   ) {
     this.breadcrumbService.setItems([
-      {label: 'Convocatorias', routerLink: ['/uic/plannings']},
+      {label: 'Convocatorias', routerLink: ['/rrhh/events']},
       {label: 'Asignacion de fases'}
     ]);
     this.columns = this.getColumns();

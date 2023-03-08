@@ -2,13 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {UpdateUserDto} from '@models/auth';
-import {CatalogueModel} from '@models/core';
+import {CatalogueModel} from '@models/resources';
 import {AuthHttpService, AuthService} from '@services/auth';
-import {BreadcrumbService, CataloguesHttpService, CoreService, MessageService} from '@services/core';
+import {BreadcrumbService, CoreService, MessageService} from '@services/resources';
 import {OnExitInterface} from '@shared/interfaces';
 import {DateValidators} from '@shared/validators';
 import {DateFormatPipe} from "@shared/pipes";
 import {CatalogueTypeEnum} from "@shared/enums";
+import { CataloguesHttpService } from '@services/resources/catalogues-http.service';
 
 @Component({
   selector: 'app-user-profile',

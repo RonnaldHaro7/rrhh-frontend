@@ -25,13 +25,12 @@
   [rows]="paginator.limit"
   [totalRecords]="paginator.totalItems"
   (onPageChange)="paginate($event)"></p-paginator>
-  <p-message severity="info" text="Convocatoria:  {{planning?.name}}"></p-message>
 <p-table
   dataKey="id"
   styleClass="p-datatable-striped"
   [value]="events"
   [columns]="columns"
-  [sortField]="'sort'" 
+  [sortField]="'sort'"
   [loading]="(loaded$|async)!"
   [(selection)]="selectedEvents"
   [responsive]="true">

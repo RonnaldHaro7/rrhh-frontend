@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BreadcrumbService, MessageService} from '@services/core';
+import {BreadcrumbService, MessageService} from '@services/resources';
 
 @Component({
   selector: 'app-profile',

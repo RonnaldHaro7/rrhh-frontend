@@ -4,7 +4,7 @@ import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {AuthService} from '@services/auth';
-import {RoutesService} from "@services/core/routes.service";
+import { RoutesService } from '@services/resources/routes.service';
 
 @Injectable()
 export class AuthenticationInterceptor implements HttpInterceptor {

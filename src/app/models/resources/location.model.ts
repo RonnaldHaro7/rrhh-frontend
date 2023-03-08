@@ -1,4 +1,4 @@
-import {CatalogueModel} from '@models/core';
+import {CatalogueModel} from '@models/resources';
 
 export interface LocationModel {
     id?: number;

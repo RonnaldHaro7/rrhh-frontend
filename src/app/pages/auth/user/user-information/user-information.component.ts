@@ -3,7 +3,8 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/form
 import {ActivatedRoute} from '@angular/router';
 import {UpdateUserDto} from '@models/auth';
 import {AuthHttpService, AuthService} from '@services/auth';
-import {BreadcrumbService, CataloguesHttpService, CoreService, MessageService} from '@services/core';
+import {BreadcrumbService, CoreService, MessageService} from '@services/resources';
+import { CataloguesHttpService } from '@services/resources/catalogues-http.service';
 import {OnExitInterface} from '@shared/interfaces';
 import {DateFormatPipe} from "@shared/pipes";
 

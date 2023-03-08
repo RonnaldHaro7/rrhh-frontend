@@ -3,7 +3,7 @@ import {AbstractControl, UntypedFormBuilder, UntypedFormGroup, Validators} from 
 import {ActivatedRoute, Router} from "@angular/router";
 import {CustomValidators} from "@shared/validators/custom-validators";
 import {AuthHttpService, AuthService} from '@services/auth';
-import {MessageService} from '@services/core';
+import {MessageService} from '@services/resources';
 
 @Component({
   selector: 'app-password-reset',

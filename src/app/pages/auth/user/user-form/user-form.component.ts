@@ -9,11 +9,12 @@ import {
 } from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CreateUserDto, RoleModel, UpdateUserDto} from '@models/auth';
-import {CatalogueModel} from '@models/core';
+import {CatalogueModel} from '@models/resources';
 import {AuthHttpService, UsersHttpService} from '@services/auth';
-import {BreadcrumbService, CataloguesHttpService, CoreService, MessageService} from '@services/core';
+import {BreadcrumbService, CoreService, MessageService} from '@services/resources';
 import {OnExitInterface} from '@shared/interfaces';
 import {RolesHttpService} from "@services/auth/roles-http.service";
+import { CataloguesHttpService } from '@services/resources/catalogues-http.service';
 
 @Component({
   selector: 'app-user-form',

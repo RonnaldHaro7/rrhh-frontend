@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor,} from '@angular/common/http';
 import {delay, Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
-import {CoreService} from '@services/core';
-import {MessageService} from '@services/core';
+import {CoreService} from '@services/resources';
+import {MessageService} from '@services/resources';
 
 @Injectable()
 

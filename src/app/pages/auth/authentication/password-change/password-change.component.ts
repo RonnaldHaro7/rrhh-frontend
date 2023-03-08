@@ -3,7 +3,7 @@ import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {CustomValidators} from "@shared/validators/custom-validators";
 import {AuthHttpService, AuthService} from '@services/auth';
-import {CoreService, MessageService} from '@services/core';
+import {CoreService, MessageService} from '@services/resources';
 
 @Component({
   selector: 'app-password-change',

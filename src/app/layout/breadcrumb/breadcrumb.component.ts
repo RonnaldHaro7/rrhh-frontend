@@ -1,7 +1,7 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {MenuItem} from 'primeng/api';
-import {BreadcrumbService, CoreService} from '@services/core';
+import {BreadcrumbService, CoreService} from '@services/resources';
 
 @Component({
   selector: 'app-breadcrumb',

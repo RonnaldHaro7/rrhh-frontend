@@ -3,9 +3,9 @@ import {UntypedFormControl} from "@angular/forms";
 import {Router} from '@angular/router';
 import {debounceTime} from "rxjs";
 import {SelectUserDto, UserModel} from '@models/auth';
-import {ColumnModel, PaginatorModel} from '@models/core';
+import {ColumnModel, PaginatorModel} from '@models/resources';
 import {AuthService, UsersHttpService} from '@services/auth';
-import {BreadcrumbService, CoreService, MessageService} from '@services/core';
+import {BreadcrumbService, CoreService, MessageService} from '@services/resources';
 import {MenuItem} from "primeng/api";
 
 @Component({

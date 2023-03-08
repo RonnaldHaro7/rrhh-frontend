@@ -4,9 +4,9 @@ import {environment} from '@env/environment';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {CreateRoleDto, RoleModel, UpdateRoleDto} from '@models/auth';
-import {PaginatorModel} from "@models/core";
+import {PaginatorModel} from "@models/resources";
 import {ServerResponse} from '@models/http-response';
-import {CoreService, MessageService} from '@services/core';
+import {CoreService, MessageService} from '@services/resources';
 
 @Injectable({
   providedIn: 'root'

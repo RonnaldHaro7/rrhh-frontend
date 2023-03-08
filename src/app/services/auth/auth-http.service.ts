@@ -7,9 +7,9 @@ import {environment} from '@env/environment';
 import {LoginModel, PasswordChangeModel, PasswordResetModel, RoleModel, UpdateUserDto, UserModel, MenuStudentModel} from '@models/auth';
 import {LoginResponse, ServerResponse} from '@models/http-response';
 import {AuthService} from '@services/auth';
-import {CoreService, MessageService} from '@services/core';
+import {CoreService, MessageService} from '@services/resources';
 // import {AuthRoutesEnum, RoutesEnum} from "@shared/enums";
-import {RoutesService} from "@services/core/routes.service";
+import {RoutesService} from "@services/resources/routes.service";
 import {RolePipe} from "@shared/pipes";
 
 @Injectable({
@@ -173,7 +173,7 @@ export class AuthHttpService {
   getProfile(): Observable<UserModel> {
     console.log('asd');
     const url = `${this.API_URL}/profile`;
-    
+
 
     this.coreService.showLoad();
     return this.httpClient.get<ServerResponse>(url).pipe(

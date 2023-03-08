@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {CoreService} from "@services/core";
+import {CoreService} from "@services/resources";
 
 @Injectable()
 export class CoreInterceptor implements HttpInterceptor {
