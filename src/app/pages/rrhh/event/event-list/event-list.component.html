@@ -57,7 +57,7 @@
 
       <td *ngFor="let col of columns">
 
-         <!--Objects-->
+         <!-- Objects
          <div *ngIf="rowData[col.field]?.id" [ngSwitch]="col.field">
           <div *ngSwitchCase="'catalogue'">
             {{rowData[col.field].name}}
@@ -65,8 +65,7 @@
           <div *ngSwitchCase="'planning'">
             {{rowData[col.field].name}}
           </div>
-        </div>
-
+        </div> -->
 
         <!--Fields-->
         <div *ngIf="!rowData[col.field]?.id" [ngSwitch]="col.field">

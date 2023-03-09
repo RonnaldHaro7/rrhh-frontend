@@ -61,8 +61,6 @@ export class EventListComponent implements OnInit {
   getColumns(): ColumnModel[] {
     return [
       {field: 'sort', header: 'Orden'},
-      {field: 'catalogue', header: 'Nombre'},
-      {field: 'planning', header: 'Convocatoria'},
       {field: 'startDate', header: 'Fecha de inicio'},
       {field: 'endDate', header: 'Fecha fin'},
       {field: 'isEnable', header: 'Estado'},
@@ -95,11 +93,11 @@ export class EventListComponent implements OnInit {
   }
 
   redirectCreateForm() {
-    this.router.navigate(['/uic/events', 'new']);
+    this.router.navigate(['/rrhh/events', 'new']);
   }
 
   redirectEditForm(id: string) {
-    this.router.navigate(['/uic/events', id]);
+    this.router.navigate(['/rrhh/events', id]);
   }
 
   remove(id: string) {

@@ -41,7 +41,7 @@ export class EventFormComponent implements OnInit, OnExitInterface {
     private eventsHttpService: EventsHttpService,
   ) {
     this.breadcrumbService.setItems([
-      {label: 'Convocatorias', routerLink: ['/uic/plannings']},
+      {label: 'Convocatorias', routerLink: ['/rrhh/events']},
       {label: 'Nueva fase'},
     ]);
     if (activatedRoute.snapshot.params['id'] !== 'new') {
@@ -85,7 +85,7 @@ export class EventFormComponent implements OnInit, OnExitInterface {
   }
 
   back(): void {
-    this.router.navigate(['/uic/events']);
+    this.router.navigate(['/rrhh/events']);
   }
 
   create(event: CreateEventDto): void {

@@ -13,6 +13,10 @@ export class BreadcrumbComponent {
   subscription: Subscription;
   items: MenuItem[] = [];
   home: MenuItem;
+  form: MenuItem;
+  proyect: MenuItem;
+  vacations: MenuItem;
+  list: MenuItem;
   loaded$ = this.coreService.loaded$;
 
   constructor(public breadcrumbService: BreadcrumbService,private coreService:CoreService) {
@@ -20,5 +24,9 @@ export class BreadcrumbComponent {
       this.items = response as MenuItem[];
     });
     this.home = {icon: 'pi pi-home', routerLink: '/'};
+    this.form = {icon: 'pi pi-file-edit', routerLink: '/'};
+    this.proyect = {icon: 'pi pi-folder', routerLink: '/'};
+    this.vacations = {icon: 'pi pi-calendar-plus', routerLink: '/'};
+    this.list = {icon: 'pi ppi-list', routerLink: '/'};
   }
 }

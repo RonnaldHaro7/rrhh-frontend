@@ -1,5 +1,4 @@
 export interface EventModel {
-  
   id: string;
   endDate: Date;
   isEnable: boolean;
